@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Wellcome {{nameLogged}}
+    </ion-title>
+    <ion-icon name="close-circle" slot="end" class="ico" (click)="backLogin()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar showCancelButton="focus" cancelButtonText="Cancel" debounce="1000" placeholder="Search other users"
+    (ionChange)="search($event)" [(ngModel)]="nameSearched"></ion-searchbar>
+  <app-users [users]="users"></app-users>
+</ion-content>
+<ion-footer>
+  <ion-fab vertical="bottom" horizontal="left" slot="fixed" class="ion-padding">
+    <ion-fab-button color="primary">Me</ion-fab-button>
+    <ion-fab-list side="top" class="ion-padding">
+      <ion-button size="small" routerLink="/wellcome/following">Following</ion-button>
+    </ion-fab-list>
+    <ion-fab-list side="end" class="ion-padding">
+      <ion-button size="small" routerLink="/wellcome/followers">Followers</ion-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-footer>

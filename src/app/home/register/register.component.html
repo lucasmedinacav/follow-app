@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Followers App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="ion-padding">
+
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+        <ion-item>
+          <ion-label position="stacked">Full Name <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="name" required="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Login <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="login" required="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Password <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="password" type="password" required="true"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding">
+        <ion-button size="small" expand="block" type="submit" class="ion-no-margin"
+          [disabled]="!registerForm.valid || loading">
+          {{textButtonRegister}}</ion-button>
+      </div>
+    </div>
+  </form>
+</ion-content>

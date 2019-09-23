@@ -1,0 +1,10 @@
+<ion-list fullscreen *ngIf="users?.length > 0">
+  <ion-item *ngFor="let user of users"><span (click)="goToUser(user)">{{user.name}}</span>
+    <ion-button *ngIf="!user.followed && !hideAction" color="light" expand="block" slot="end"
+      (click)="follow(user)">Seguir
+    </ion-button>
+    <ion-button *ngIf="user.followed && !hideAction" color="primary" expand="block" slot="end"
+      (click)="unfollow(user)">Seguindo
+    </ion-button>
+  </ion-item>
+</ion-list>

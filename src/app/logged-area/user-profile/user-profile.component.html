@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()" text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list *ngIf="show == 'main'">
+    <ion-item button (click)="getFollowers()">
+      <ion-label>
+        <h3>Followers</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="getFollowing()">
+      <ion-label>
+        <h3>Following</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <app-users *ngIf="show == 'users'" [users]="users" [hideAction]="true"></app-users>
+</ion-content>

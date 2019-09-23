@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Followers App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="ion-padding">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+        <ion-item>
+          <ion-label position="stacked">Login <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="login" required="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Password <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="password" type="password" required="true"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding">
+        <ion-button size="small" expand="block" type="submit" class="ion-no-margin"
+          [disabled]="!loginForm.valid || loading">
+          {{textButtonLogin}}
+        </ion-button>
+      </div>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <div class="ion-padding">
+    <ion-button expand="full" type="submit" class="ion-no-margin" [disabled]=loading routerLink="/home/register">
+      Don't you registration yet? Do it now!
+    </ion-button>
+  </div>
+</ion-footer>

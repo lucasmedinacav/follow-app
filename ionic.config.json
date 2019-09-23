@@ -1,5 +1,7 @@
 {
   "name": "followApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

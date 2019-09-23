@@ -1,23 +1,37 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
+import { RegisterComponent } from './register/register.component';
 
-import { HomePage } from './home.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        redirectTo: 'login',
+        pathMatch: 'full'
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       }
+
     ])
   ],
-  declarations: [HomePage]
+  declarations: [LoginComponent, RegisterComponent],
+  providers: [LoginService]
 })
-export class HomePageModule {}
+export class HomePageModule { }
